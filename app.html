@@ -1,0 +1,152 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Dragger Sample Page</title>
+    <meta charset="utf-8" />
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .guidelineHorz {
+            width: 100%;
+            height: 0;
+            border-top: 1px gray dotted;
+            display: none;
+            position: absolute;
+        }
+
+        .guidelineVert {
+            height: 100%;
+            width: 0;
+            border-left: 1px gray dotted;
+            display: none;
+            position: absolute;
+        }
+
+
+        .dragElement {
+            position: absolute;
+            width: 60px;
+            height: 20px;
+            background-color: red;
+            color: white;
+            left: 400px;
+            top: 100px;
+            border-radius: 5px;
+            z-index: 4;
+            cursor: move;
+        }
+
+            .dragElement span {
+                display: block;
+                margin-top: 1px;
+                text-align: center;
+                width: 100%;
+                font-weight: bold;
+                font-size: 12px;
+                line-height: 15px;
+                cursor: move;
+            }
+
+        .titleBar {
+            position: fixed;
+            left: 0;
+            right: 0;
+            top: 0;
+            height: 40px;
+            overflow: hidden;
+            border-bottom: 1px solid navy;
+            z-index: 3;
+        }
+
+            .titleBar h1 {
+                font-size: 18px;
+                line-height: 22px;
+                padding: 0;
+                margin: 10px;
+                color: navy;
+                display: block;
+                float: left;
+            }
+
+            .titleBar h2 {
+                font-size: 15px;
+                line-height: 22px;
+                padding: 0;
+                margin: 10px;
+                color: navy;
+                float: right;
+                font-weight: normal;
+            }
+
+        .menu {
+            position: fixed;
+            left: 0;
+            top: 41px;
+            width: 200px;
+            bottom: 0;
+            background: #ffffff; /* Old browsers */
+            background: -moz-linear-gradient(left, #ffffff 0%, #8ef0f9 85%, #8ef0f9 99%, #50a7b2 100%); /* FF3.6-15 */
+            background: -webkit-linear-gradient(left, #ffffff 0%,#8ef0f9 85%,#8ef0f9 99%,#50a7b2 100%); /* Chrome10-25,Safari5.1-6 */
+            background: linear-gradient(to right, #ffffff 0%,#8ef0f9 85%,#8ef0f9 99%,#50a7b2 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#50a7b2',GradientType=1 ); /* IE6-9 */
+            copy z-index: 2;
+        }
+
+        .margin {
+            margin: 15px;
+            height: auto;
+            width: calc(100% - 30px);
+        }
+
+        form div {
+            padding-bottom: 12px;
+            display: block;
+            overflow: hidden;
+            height: auto;
+            width: 100%;
+        }
+
+            form div input {
+                font-size: 12px;
+                display: block;
+                float: left;
+                clear: left;
+            }
+
+                form div input + label {
+                    font-size: 12px;
+                    display: block;
+                    float: left;
+                    margin-top: 1px;
+                    margin-left: 3px;
+                }
+    </style>
+    <script data-main="js/app" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.22/require.js"></script>
+</head>
+<body>
+    <div class="titleBar">
+        <h1>Lightweight jQuery Dragger Plugin Demo</h1>
+        <h2>by Geoff Swenson <a href="mailto:geoffrey@nwlink.com">geoffrey@nwlink.com</a></h2>
+    </div>
+    <div class="menu">
+        <form class="margin" id="controls">
+            <div>
+                <input id="xConstrain" value="[-100,300]" type="checkbox" />
+                <label for="xConstrain">Constrain X (xConstrain)</label>
+            </div>
+            <div>
+                <input id="yConstrain" value="[-30,100]" type="checkbox" />
+                <label for="yConstrain">Constrain Y (yConstrain)</label>
+            </div>
+        </form>
+    </div>
+    <div id="dragElement" class="dragElement"><span>Drag Me</span></div>
+    <div class="guidelineVert" id="xMin"></div>
+    <div class="guidelineVert" id="xMax"></div>
+    <div class="guidelineHorz" id="yMin"></div>
+    <div class="guidelineHorz" id="yMax"></div>
+
+</body>
+</html>
